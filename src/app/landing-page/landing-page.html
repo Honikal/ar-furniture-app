@@ -2,9 +2,17 @@
     <h1>Ferretería Cartago Colonial</h1>
 </div>
 <div id="furniture-grid">
-    @for (item of amount_furniture; track $index) {
+    @for (item of furniture_models; track $index) {
         <div class="furniture-display">
-            <img alt="imagen de mueble"/>
+            <model-viewer
+                [src]="item.src"
+                alt="Modelo 3D de {{item.name}}"
+                disable-zoom
+                camera-orbit="0deg 75deg 2.5m"
+                field-of-view="45deg"
+                style="width: 100%; height: 500px; border-radius: 8px; background: #eee;">
+            >
+            </model-viewer>
             <p>Mueble</p>
             <button class="button" (click)="onFurnitureClicked($index)">
                 Click para ver en AR
