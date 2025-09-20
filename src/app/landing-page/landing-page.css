@@ -1,0 +1,72 @@
+/*Top page container*/
+#top-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#top-page h1{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+/*Furniture grid container*/
+#furniture-grid{
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    grid-template-columns: 1fr; /*Predeterminado mínimo 1 columna*/
+}
+
+/*Individual furniture card*/
+.furniture-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 10px;
+}
+.furniture-display img{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+.furniture-display p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    margin: 8px 0;
+}
+
+.button {
+    border: 1px solid #333;
+    background-color: white;
+    padding: 12px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.button:hover{
+    background-color: #f0f0f0;
+}
+
+/*Responsiveness*/
+@media (min-width: 600px) {
+    #furniture-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+@media (min-width: 900px) {
+    #furniture-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+    }
+}

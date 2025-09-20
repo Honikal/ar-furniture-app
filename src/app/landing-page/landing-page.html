@@ -1,0 +1,15 @@
+<div id="top-page">
+    <h1>Ferretería Cartago Colonial</h1>
+</div>
+<div id="furniture-grid">
+    @for (item of amount_furniture; track $index) {
+        <div class="furniture-display">
+            <img alt="imagen de mueble"/>
+            <p>Mueble</p>
+            <button class="button" (click)="onFurnitureClicked($index)">
+                Click para ver en AR
+            </button>
+        </div>
+    }
+</div>
+
