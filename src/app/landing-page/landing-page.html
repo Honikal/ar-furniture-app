@@ -1,6 +1,48 @@
 <div id="top-page">
     <h1>Ferretería Cartago Colonial</h1>
 </div>
+
+<div id="device-warning">
+    <p>Para experimentar la realidad aumentada, por favor accede desde un dispositivo móvil con cámara.</p>
+</div>
+
+<!-- Modelo AR -->
+@if (showARView){
+    <div id="ar-modal">
+
+        <div id="ar-modal-content">
+            <button id="close-button" (click)="closeARView()">X</button>
+
+            <div id="ar-instructions">
+                <h3>¿Cómo usar la vista AR?</h3>
+                <ul>
+                    <li>Mueve tu dispositivo lentamente para permitir que se detecten las superficies</li>
+                    <li>Toca en la pantalla para colocar el mueble</li>
+                    <li>Acerca o aleja los muebles para ajustar el tamaño</li>
+                    <li>Desliza con los dedos para ajustar el mueble</li>
+                </ul>
+            </div>
+
+            <model-viewer
+                #arViewer
+                src="{{selectedModelSrc}}"
+                alt="Modelo 3D en AR"
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                camera-controls
+                environment-intensity="1.0"
+                shadow-intensity="1.0"
+                style="width: 100%; height: 100%;"
+            >
+                <button slot="ar-button" id="ar-button" (click)="requestCameraPermission()" style="display: none;">
+                    Activar AR
+                </button>
+            </model-viewer>
+        </div>
+    </div>
+}
+
+<!-- Contenido de la página -->
 <div id="furniture-grid">
     @for (item of furniture_models; track $index) {
         <div class="furniture-display">
@@ -9,12 +51,13 @@
                 alt="Modelo 3D de {{item.name}}"
                 disable-zoom
                 camera-orbit="0deg 75deg 2.5m"
-                field-of-view="45deg"
-                style="width: 100%; height: 500px; border-radius: 8px; background: #eee;">
+                field-of-view="30deg"
+                auto-rotate
+                style="width: 100%; height: 300px; border-radius: 8px; background: #eee;"
             >
             </model-viewer>
             <p>Mueble</p>
-            <button class="button" (click)="onFurnitureClicked($index)">
+            <button class="button" (click)="onFurnitureClicked(item.src)">
                 Click para ver en AR
             </button>
         </div>
