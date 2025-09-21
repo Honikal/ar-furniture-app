@@ -1,82 +1,94 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
-//Importamos este schema para reconocer componentes web
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common'; // ✅ Import necesario
 
 @Component({
   selector: 'app-landing-page',
   imports: [],
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]  //Permite el model viewer
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LandingPage implements AfterViewInit, OnInit {
   furniture_models = [
-    { name: 'Mueble 1', src: "/models/1/18_9_2025.glb"},
-    { name: 'Mueble 2', src: "/models/2/18_9_2025.glb"},
-    { name: 'Mueble 3', src: "/models/3/18_9_2025.glb"}
+    { name: 'Mueble 1', src: "/models/1/18_9_2025.glb" },
+    { name: 'Mueble 2', src: "/models/2/18_9_2025.glb" },
+    { name: 'Mueble 3', src: "/models/3/18_9_2025.glb" }
   ];
 
-  showARView : boolean = false;
-  selectedModelSrc : string = '';
-  isMobileDevice : boolean = false;
-  currentScale : number = 1;
-  currentRotation : number = 0;
+  showARView: boolean = false;
+  selectedModelSrc: string = '';
+  isMobileDevice: boolean = false;
+  currentScale: number = 1;
+  currentRotation: number = 0;
+  isBrowser: boolean; // ✅ Nueva variable para detectar navegador
 
   @ViewChild('arViewer', { static: false }) arViewer!: ElementRef;
 
-  //Llamamos al constructor para que se cheque que elemento se está usando en la aplicación
-  ngOnInit(){
-    this.checkMobileDevice();
+  // ✅ Constructor modificado para detectar plataforma
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
-  ngAfterViewInit(): void {
-    //Checamos si el model-viewer es seteado o cargado de forma correcta
-    if (typeof customElements.get('model-viewer') === 'undefined') {
-      console.error('Model Viewer not loaded. Check script in index.html');
+  // ✅ ngOnInit corregido
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.checkMobileDevice();
     }
   }
 
-  checkMobileDevice(){
-    //Esta función llamada por el constructor se encarga de verificar que la aplicación esté accedida desde un dispositivo móbil
-    this.isMobileDevice = (typeof window.screen.orientation !== undefined) || 
-                        (navigator.userAgent.indexOf('IEMobile') !== -1);
+  // ✅ ngAfterViewInit corregido
+  ngAfterViewInit(): void {
+    if (this.isBrowser) {
+      if (typeof customElements !== 'undefined' && typeof customElements.get('model-viewer') === 'undefined') {
+        console.error('Model Viewer not loaded. Check script in index.html');
+      }
+    }
   }
 
-  onFurnitureClicked(modelSrc: string){
-    //Primero, verificamos que el dispositivo usado sea un móbil
-    if (!this.isMobileDevice){
+  // ✅ checkMobileDevice corregido
+  checkMobileDevice() {
+    if (this.isBrowser) {
+      this.isMobileDevice = (typeof window !== 'undefined' && typeof window.screen.orientation !== 'undefined') ||
+        (typeof navigator !== 'undefined' && navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+  }
+
+  onFurnitureClicked(modelSrc: string) {
+    if (!this.isBrowser) return;
+
+    if (!this.isMobileDevice) {
       alert("Por favor, accede desde un dispositivo móvil para experimentar la realidad aumentada.");
       return;
     }
 
-    //Asignamos los datos del model y activamos el modo AR
     this.selectedModelSrc = modelSrc;
     this.showARView = true;
 
-    //Esperamos para renderizar el modal
     setTimeout(() => {
       this.triggerAR();
     }, 100);
   }
 
-  closeARView(){
-    //Apagamos el modal de vista AR
+  closeARView() {
     this.showARView = false;
   }
 
-  triggerAR(){ 
+  triggerAR() {
+    if (!this.isBrowser) return;
+
     const arButton = document.getElementById("ar-button") as HTMLElement;
-    if (arButton){
+    if (arButton) {
       arButton.click();
     }
   }
 
-  requestCameraPermission(){
-    //Se encarga de solicitar el permiso del uso de la cámara para usar el AR
-      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  requestCameraPermission() {
+    if (!this.isBrowser) return;
+
+    if (typeof navigator !== 'undefined' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then(() => {
           console.log('Camera access granted');
-          // Camera permission granted, we can proceed with AR
         })
         .catch(err => {
           console.error('Camera access denied:', err);
@@ -87,5 +99,4 @@ export class LandingPage implements AfterViewInit, OnInit {
       alert('Su dispositivo no es compatible con la función de RA.');
     }
   }
-  
 }
