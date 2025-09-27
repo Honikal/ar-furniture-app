@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common'; // ✅ Import necesario
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-landing-page',
@@ -20,23 +20,20 @@ export class LandingPage implements AfterViewInit, OnInit {
   isMobileDevice: boolean = false;
   currentScale: number = 1;
   currentRotation: number = 0;
-  isBrowser: boolean; // ✅ Nueva variable para detectar navegador
+  isBrowser: boolean;
 
   @ViewChild('arViewer', { static: false }) arViewer!: ElementRef;
 
-  // ✅ Constructor modificado para detectar plataforma
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
-  // ✅ ngOnInit corregido
   ngOnInit() {
     if (this.isBrowser) {
       this.checkMobileDevice();
     }
   }
 
-  // ✅ ngAfterViewInit corregido
   ngAfterViewInit(): void {
     if (this.isBrowser) {
       if (typeof customElements !== 'undefined' && typeof customElements.get('model-viewer') === 'undefined') {
@@ -45,7 +42,6 @@ export class LandingPage implements AfterViewInit, OnInit {
     }
   }
 
-  // ✅ checkMobileDevice corregido
   checkMobileDevice() {
     if (this.isBrowser) {
       this.isMobileDevice = (typeof window !== 'undefined' && typeof window.screen.orientation !== 'undefined') ||

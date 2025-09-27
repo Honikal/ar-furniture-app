@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\dist\\ar-furniture-app",
-    "\\dist\\ar-furniture-app\\server"
+    "\\src",
+    "\\src\\app"
   ],
+  "SelectedNode": "\\tsconfig.json",
   "PreviewInSolutionExplorer": false
 }
