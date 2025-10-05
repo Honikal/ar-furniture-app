@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 //Importamos este schema para reconocer componentes web
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit
   styleUrl: './landing-page.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]  //Permite el model viewer
 })
-export class LandingPage implements AfterViewInit, OnInit {
+export class LandingPage implements AfterViewInit {
   furniture_models = [
     { name: 'Mueble 1', src: "/models/1/18_9_2025.glb"},
     { name: 'Mueble 2', src: "/models/2/18_9_2025.glb"},
@@ -23,11 +23,6 @@ export class LandingPage implements AfterViewInit, OnInit {
 
   @ViewChild('arViewer', { static: false }) arViewer!: ElementRef;
 
-  //Llamamos al constructor para que se cheque que elemento se está usando en la aplicación
-  ngOnInit(){
-    this.checkMobileDevice();
-  }
-
   ngAfterViewInit(): void {
     //Checamos si el model-viewer es seteado o cargado de forma correcta
     if (typeof customElements.get('model-viewer') === 'undefined') {
@@ -35,18 +30,9 @@ export class LandingPage implements AfterViewInit, OnInit {
     }
   }
 
-  checkMobileDevice(){
-    //Esta función llamada por el constructor se encarga de verificar que la aplicación esté accedida desde un dispositivo móbil
-    this.isMobileDevice = (typeof window.screen.orientation !== undefined) || 
-                        (navigator.userAgent.indexOf('IEMobile') !== -1);
-  }
 
   onFurnitureClicked(modelSrc: string){
     //Primero, verificamos que el dispositivo usado sea un móbil
-    if (!this.isMobileDevice){
-      alert("Por favor, accede desde un dispositivo móvil para experimentar la realidad aumentada.");
-      return;
-    }
 
     //Asignamos los datos del model y activamos el modo AR
     this.selectedModelSrc = modelSrc;
