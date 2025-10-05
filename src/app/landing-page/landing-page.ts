@@ -1,5 +1,5 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+//Importamos este schema para reconocer componentes web
 
 @Component({
   selector: 'app-landing-page',
@@ -8,7 +8,7 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrl: './landing-page.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class LandingPage implements AfterViewInit, OnInit {
+export class LandingPage implements AfterViewInit {
   furniture_models = [
     { name: 'Mueble 1', src: "/models/1/18_9_2025.glb" },
     { name: 'Mueble 2', src: "/models/2/18_9_2025.glb" },
@@ -24,38 +24,15 @@ export class LandingPage implements AfterViewInit, OnInit {
 
   @ViewChild('arViewer', { static: false }) arViewer!: ElementRef;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
-
-  ngOnInit() {
-    if (this.isBrowser) {
-      this.checkMobileDevice();
-    }
-  }
-
   ngAfterViewInit(): void {
-    if (this.isBrowser) {
-      if (typeof customElements !== 'undefined' && typeof customElements.get('model-viewer') === 'undefined') {
-        console.error('Model Viewer not loaded. Check script in index.html');
-      }
+    if (typeof customElements.get('model-viewer') === 'undefined') {
+      console.error('Model Viewer not loaded. Check script in index.html');
     }
   }
 
-  checkMobileDevice() {
-    if (this.isBrowser) {
-      this.isMobileDevice = (typeof window !== 'undefined' && typeof window.screen.orientation !== 'undefined') ||
-        (typeof navigator !== 'undefined' && navigator.userAgent.indexOf('IEMobile') !== -1);
-    }
-  }
 
-  onFurnitureClicked(modelSrc: string) {
-    if (!this.isBrowser) return;
-
-    if (!this.isMobileDevice) {
-      alert("Por favor, accede desde un dispositivo móvil para experimentar la realidad aumentada.");
-      return;
-    }
+  onFurnitureClicked(modelSrc: string){
+    //Primero, verificamos que el dispositivo usado sea un móbil
 
     this.selectedModelSrc = modelSrc;
     this.showARView = true;
