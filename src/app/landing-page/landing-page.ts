@@ -17,16 +17,19 @@ export class LandingPage implements AfterViewInit {
 
   showARView: boolean = false;
   selectedModelSrc: string = '';
-  isMobileDevice: boolean = false;
   currentScale: number = 1;
   currentRotation: number = 0;
-  isBrowser: boolean;
 
   @ViewChild('arViewer', { static: false }) arViewer!: ElementRef;
 
   ngAfterViewInit(): void {
-    if (typeof customElements.get('model-viewer') === 'undefined') {
-      console.error('Model Viewer not loaded. Check script in index.html');
+    // Ensure this runs only in a real browser
+    if (typeof window !== 'undefined' && typeof customElements !== 'undefined') {
+      if (typeof customElements.get('model-viewer') === 'undefined') {
+        console.error('Model Viewer not loaded. Check script in index.html');
+      }
+    } else {
+      console.warn('Not running in a browser environment — skipping Model Viewer check.');
     }
   }
 
@@ -47,8 +50,6 @@ export class LandingPage implements AfterViewInit {
   }
 
   triggerAR() {
-    if (!this.isBrowser) return;
-
     const arButton = document.getElementById("ar-button") as HTMLElement;
     if (arButton) {
       arButton.click();
@@ -56,8 +57,6 @@ export class LandingPage implements AfterViewInit {
   }
 
   requestCameraPermission() {
-    if (!this.isBrowser) return;
-
     if (typeof navigator !== 'undefined' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then(() => {
