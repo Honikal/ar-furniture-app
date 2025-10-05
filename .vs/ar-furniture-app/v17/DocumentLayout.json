@@ -1,0 +1,145 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\src\\app\\landing-page\\landing-page.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\landing-page\\landing-page.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\tsconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tsconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\tsconfig.app.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tsconfig.app.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\vercel.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vercel.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\angular.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:angular.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "tsconfig.app.json",
+              "DocumentMoniker": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\tsconfig.app.json",
+              "RelativeDocumentMoniker": "tsconfig.app.json",
+              "ToolTip": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\tsconfig.app.json",
+              "RelativeToolTip": "tsconfig.app.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-21T07:49:50.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "tsconfig.json",
+              "DocumentMoniker": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\tsconfig.json",
+              "RelativeDocumentMoniker": "tsconfig.json",
+              "ToolTip": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\tsconfig.json*",
+              "RelativeToolTip": "tsconfig.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-21T07:49:47.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "vercel.json",
+              "DocumentMoniker": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\vercel.json",
+              "RelativeDocumentMoniker": "vercel.json",
+              "ToolTip": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\vercel.json",
+              "RelativeToolTip": "vercel.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-21T07:25:58.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "landing-page.ts",
+              "DocumentMoniker": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\src\\app\\landing-page\\landing-page.ts",
+              "RelativeDocumentMoniker": "src\\app\\landing-page\\landing-page.ts",
+              "ToolTip": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\src\\app\\landing-page\\landing-page.ts",
+              "RelativeToolTip": "src\\app\\landing-page\\landing-page.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAB1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-09-21T07:16:48.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-21T07:12:46.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "angular.json",
+              "DocumentMoniker": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\angular.json",
+              "RelativeDocumentMoniker": "angular.json",
+              "ToolTip": "C:\\Users\\PC USER\\Desktop\\ar-furniture-app\\angular.json",
+              "RelativeToolTip": "angular.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-21T07:12:43.086Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
