@@ -14,6 +14,8 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "outputPath":"dist/ar-furniture-app",
+            "index": "src/index.html",
             "polyfills": [
               "zone.js"
             ],
@@ -26,13 +28,7 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            },
-            "outputPath":"dist/ar-furniture-app"
+            ]
           },
           "configurations": {
             "production": {
