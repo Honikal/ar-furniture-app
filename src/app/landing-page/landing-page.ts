@@ -6,21 +6,20 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit
   imports: [],
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]  //Permite el model viewer
 })
 export class LandingPage implements AfterViewInit, OnInit {
   furniture_models = [
-    { name: 'Mueble 1', src: "/models/1/18_9_2025.glb" },
-    { name: 'Mueble 2', src: "/models/2/18_9_2025.glb" },
-    { name: 'Mueble 3', src: "/models/3/18_9_2025.glb" }
+    { name: 'Mueble 1', src: "/models/1/18_9_2025.glb"},
+    { name: 'Mueble 2', src: "/models/2/18_9_2025.glb"},
+    { name: 'Mueble 3', src: "/models/3/18_9_2025.glb"}
   ];
 
-  showARView: boolean = false;
-  selectedModelSrc: string = '';
-  isMobileDevice: boolean = false;
-  currentScale: number = 1;
-  currentRotation: number = 0;
-  isBrowser: boolean;
+  showARView : boolean = false;
+  selectedModelSrc : string = '';
+  isMobileDevice : boolean = false;
+  currentScale : number = 1;
+  currentRotation : number = 0;
 
   @ViewChild('arViewer', { static: false }) arViewer!: ElementRef;
 
@@ -30,6 +29,7 @@ export class LandingPage implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
+    //Checamos si el model-viewer es seteado o cargado de forma correcta
     if (typeof customElements.get('model-viewer') === 'undefined') {
       console.error('Model Viewer not loaded. Check script in index.html');
     }
@@ -48,34 +48,35 @@ export class LandingPage implements AfterViewInit, OnInit {
       return;
     }
 
+    //Asignamos los datos del model y activamos el modo AR
     this.selectedModelSrc = modelSrc;
     this.showARView = true;
 
+    //Esperamos para renderizar el modal
     setTimeout(() => {
       this.triggerAR();
     }, 100);
   }
 
-  closeARView() {
+  closeARView(){
+    //Apagamos el modal de vista AR
     this.showARView = false;
   }
 
-  triggerAR() {
-    if (!this.isBrowser) return;
-
+  triggerAR(){ 
     const arButton = document.getElementById("ar-button") as HTMLElement;
-    if (arButton) {
+    if (arButton){
       arButton.click();
     }
   }
 
-  requestCameraPermission() {
-    if (!this.isBrowser) return;
-
-    if (typeof navigator !== 'undefined' && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  requestCameraPermission(){
+    //Se encarga de solicitar el permiso del uso de la cámara para usar el AR
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then(() => {
           console.log('Camera access granted');
+          // Camera permission granted, we can proceed with AR
         })
         .catch(err => {
           console.error('Camera access denied:', err);
@@ -86,4 +87,5 @@ export class LandingPage implements AfterViewInit, OnInit {
       alert('Su dispositivo no es compatible con la función de RA.');
     }
   }
+  
 }
