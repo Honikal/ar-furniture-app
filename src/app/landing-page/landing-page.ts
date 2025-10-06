@@ -29,9 +29,13 @@ export class LandingPage implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    //Checamos si el model-viewer es seteado o cargado de forma correcta
-    if (typeof customElements.get('model-viewer') === 'undefined') {
-      console.error('Model Viewer not loaded. Check script in index.html');
+    // Ensure this runs only in a real browser
+    if (typeof window !== 'undefined' && typeof customElements !== 'undefined') {
+      if (typeof customElements.get('model-viewer') === 'undefined') {
+        console.error('Model Viewer not loaded. Check script in index.html');
+      }
+    } else {
+      console.warn('Not running in a browser environment — skipping Model Viewer check.');
     }
   }
 
@@ -63,7 +67,8 @@ export class LandingPage implements AfterViewInit, OnInit {
     this.showARView = false;
   }
 
-  triggerAR(){ 
+
+  triggerAR() {
     const arButton = document.getElementById("ar-button") as HTMLElement;
     if (arButton){
       arButton.click();
